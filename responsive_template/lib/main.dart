@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
             color: Colors.orange,
             onPressed: () {
               SnackBar snackBar = SnackBar(
-                backgroundColor: Colors.green,
-                content: Text("Hello this is a snackbar"),
+                backgroundColor: Colors.orange,
+                content: Text("Hello snackbar"),
               );
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
             },
