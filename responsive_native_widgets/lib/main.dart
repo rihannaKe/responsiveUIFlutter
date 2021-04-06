@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'responsiveWidgets/MediaQuery.dart';
 import 'responsiveWidgets/LayoutBuilder.dart';
 import 'responsiveWidgets/MediaQueryVsLayoutBuilder.dart';
+import 'responsiveWidgets/MediaQueryVsLayoutBuilderDuo.dart';
 import 'responsiveWidgets/AspectRatio.dart';
+import 'responsiveWidgets/AspectRatioAlign.dart';
 import 'responsiveWidgets/FittedBox.dart';
 import 'responsiveWidgets/FractionallySizedBox.dart';
 import 'responsiveWidgets/OrientationBuilder.dart';
@@ -20,14 +22,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Responsive Widgets',
       theme: ThemeData(
-        primarySwatch: Colors.purple,
+        primarySwatch: Colors.deepPurple,
+        primaryColor: Colors.purple[800],
       ),
-      home: HomePage(),
+      home: _HomePage(),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
+class _HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +40,7 @@ class HomePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Center(
           child: Column(
-            children: [
+            children: <Widget>[
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 20.0),
                 child: ElevatedButton(
@@ -80,50 +83,26 @@ class HomePage extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 20.0),
                 child: ElevatedButton(
+                  child: Text('MediaQuery vs LayoutBuilder Duo'),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              MediaQueryVsLayoutBuilderDuoPage()),
+                    );
+                  },
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 20.0),
+                child: ElevatedButton(
                   child: Text('OrientaionBuilder'),
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => OrientatioBuilderPage()),
-                    );
-                  },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 20.0),
-                child: ElevatedButton(
-                  child: Text('AspectRatio'),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => AspectratioPage()),
-                    );
-                  },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 20.0),
-                child: ElevatedButton(
-                  child: Text('FractionallySizedBox'),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => FractionallySizedBoxPage()),
-                    );
-                  },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 20.0),
-                child: ElevatedButton(
-                  child: Text('FittedBox'),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => FittedBoxPage()),
                     );
                   },
                 ),
@@ -141,19 +120,59 @@ class HomePage extends StatelessWidget {
                   },
                 ),
               ),
-              Text('Third party packages'),
+
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 20.0),
                 child: ElevatedButton(
-                  child: Text('Sizer'),
+                  child: Text('AspectRatio'),
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => SizerWidget()),
+                      MaterialPageRoute(
+                          builder: (context) => AspectratioPage()),
                     );
                   },
                 ),
               ),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 20.0),
+                child: ElevatedButton(
+                  child: Text('AspectRatioAligned'),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AspectratioAlignedPage()),
+                    );
+                  },
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 20.0),
+                child: ElevatedButton(
+                  child: Text('FittedBox'),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => FittedBoxPage()),
+                    );
+                  },
+                ),
+              ),
+
+              // Text('Third party packages'),
+              // Padding(
+              //   padding: EdgeInsets.symmetric(vertical: 20.0),
+              //   child: ElevatedButton(
+              //     child: Text('Sizer'),
+              //     onPressed: () {
+              //       Navigator.push(
+              //         context,
+              //         MaterialPageRoute(builder: (context) => SizerWidget()),
+              //       );
+              //     },
+              //   ),
+              // ),
             ],
           ),
         ),

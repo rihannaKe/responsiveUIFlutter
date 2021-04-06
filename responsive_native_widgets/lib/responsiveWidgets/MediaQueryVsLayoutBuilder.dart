@@ -26,13 +26,15 @@ class MyLayoutBuilder extends StatelessWidget {
       child: LayoutBuilder(
         builder: (context, constraints) {
           return Center(
-            child: Text(
-              '[MediaQuery] width: ${screenSize.width}\n' +
-                  '[LayoutBuilder] width: ${constraints.maxWidth}\n\n' +
-                  '[MediaQuery] height: ${screenSize.height}\n' +
-                  '[LayoutBuilder] height: ${constraints.maxHeight}\n\n' +
-                  '[MediaQuery] orientation: $orientation',
-              style: TextStyle(color: Colors.white, fontSize: 18),
+            child: FittedBox(
+              child: Text(
+                '[MediaQuery] width: ${screenSize.width}\n' +
+                    '[LayoutBuilder] width: ${constraints.maxWidth}\n\n' +
+                    '[MediaQuery] height: ${screenSize.height}\n' +
+                    '[LayoutBuilder] height: ${constraints.maxHeight}\n\n' +
+                    '[MediaQuery] orientation: $orientation',
+                style: TextStyle(color: Colors.white, fontSize: 30),
+              ),
             ),
           );
         },

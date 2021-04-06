@@ -28,7 +28,7 @@ class _MyLayoutBuilder extends StatelessWidget {
               'LayoutBuilder\n\n' +
                   '-BoxConstraint.maxWidth: ${constraints.maxWidth}\n\n' +
                   '-BoxConstraint.maxHeight: ${constraints.maxHeight}\n\n',
-              style: TextStyle(color: Colors.white, fontSize: 18),
+              style: TextStyle(color: Colors.white, fontSize: 25),
             ),
           );
         },

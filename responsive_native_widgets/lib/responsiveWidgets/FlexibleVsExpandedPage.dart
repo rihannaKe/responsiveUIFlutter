@@ -10,16 +10,55 @@ class FlexibleVsExpandedPage extends StatelessWidget {
         child: Column(
           children: [
             Row(
-              children: [ExpandedWidget(), FlexibleWidget()],
+              children: [
+                Expanded(
+                  child: MyExpandedConent(),
+                ),
+                Expanded(
+                  child: MyExpandedConent(),
+                ),
+              ],
             ),
             Row(
-              children: [ExpandedWidget(), ExpandedWidget()],
+              children: [
+                Flexible(
+                  child: MyFlexContent(),
+                ),
+                Flexible(
+                  child: MyFlexContent(),
+                )
+              ],
             ),
             Row(
-              children: [FlexibleWidget(), FlexibleWidget()],
+              children: [
+                Flexible(
+                  child: MyFlexContent(),
+                ),
+                Expanded(
+                  child: MyExpandedConent(),
+                )
+              ],
             ),
             Row(
-              children: [FlexibleWidget(), ExpandedWidget()],
+              children: [
+                Expanded(
+                  child: MyExpandedConent(),
+                ),
+                Flexible(
+                  child: MyFlexContent(),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: MyExpandedConent(),
+                ),
+                Flexible(
+                  child: MyFlexContent(),
+                ),
+              ],
             ),
           ],
         ),
@@ -28,42 +67,40 @@ class FlexibleVsExpandedPage extends StatelessWidget {
   }
 }
 
-class ExpandedWidget extends StatelessWidget {
+class MyExpandedConent extends StatelessWidget {
+  const MyExpandedConent({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.purple,
-          border: Border.all(color: Colors.white),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Text(
-            'Expanded',
-            style: TextStyle(color: Colors.white, fontSize: 24),
-          ),
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.purple,
+        border: Border.all(color: Colors.white),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Text(
+          'Expanded',
+          style: TextStyle(color: Colors.white, fontSize: 25),
         ),
       ),
     );
   }
 }
 
-class FlexibleWidget extends StatelessWidget {
+class MyFlexContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.amber,
-          border: Border.all(color: Colors.white),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Text(
-            'I am Flexiblvfgedddd!!',
-            style: TextStyle(color: Colors.white, fontSize: 24),
-          ),
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.amber,
+        border: Border.all(color: Colors.white),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Text(
+          'I am Flexible!!',
+          style: TextStyle(color: Colors.black, fontSize: 25),
         ),
       ),
     );

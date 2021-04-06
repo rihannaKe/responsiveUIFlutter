@@ -5,10 +5,7 @@ class MediaQueryPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('MediaQuery')),
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: MyMediaQuery(),
-      ),
+      body: MyMediaQuery(),
     );
   }
 }
@@ -17,9 +14,10 @@ class MyMediaQuery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
-    var width = screenSize.width;
-    var height = screenSize.height;
+    double width = screenSize.width;
+    double height = screenSize.height;
     Orientation orientation = MediaQuery.of(context).orientation;
+
     return Container(
       decoration: BoxDecoration(
         color: Colors.purple,
@@ -29,10 +27,10 @@ class MyMediaQuery extends StatelessWidget {
       child: Center(
         child: Text(
           'MediaQuery\n\n' +
-              '-width: ${width}\n\n' +
-              '-height: ${height}\n\n' +
-              '-orientation: $orientation',
-          style: TextStyle(color: Colors.white, fontSize: 18),
+              '-width: $width \n' +
+              '-height: $height \n' +
+              '-orientation: $orientation ',
+          style: TextStyle(color: Colors.white, fontSize: 25),
         ),
       ),
     );

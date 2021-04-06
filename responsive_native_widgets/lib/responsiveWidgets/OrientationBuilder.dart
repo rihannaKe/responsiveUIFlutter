@@ -31,11 +31,12 @@ class MyOrientazioneBuilder extends StatelessWidget {
             margin: EdgeInsets.all(25),
             child: OrientationBuilder(
               builder: (context, orientation) => Center(
-                child: Text(
-                  'My Widget 1\n\n' +
-                      'MediaQuery orientation: $deviceOrientation\n\n' +
-                      'OrientationBuilder: $orientation',
-                  style: TextStyle(color: Colors.white, fontSize: 18),
+                child: FittedBox(
+                  child: Text(
+                    'MediaQuery orientation: $deviceOrientation\n\n' +
+                        'OrientationBuilder: $orientation',
+                    style: TextStyle(color: Colors.white, fontSize: 30),
+                  ),
                 ),
               ),
             ),
@@ -43,19 +44,20 @@ class MyOrientazioneBuilder extends StatelessWidget {
         ),
         Expanded(
           flex: 3,
-          child: OrientationBuilder(
-            builder: (context, orientation) => Container(
-              margin: EdgeInsets.all(25),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.purple, width: 3),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Center(
-                child: Text(
-                  'My Widget 2\n\n' +
-                      'MediaQuery orientation: $deviceOrientation\n\n' +
-                      'OrientationBuilder: $orientation',
-                  style: TextStyle(color: Colors.purple, fontSize: 18),
+          child: Container(
+            margin: EdgeInsets.all(25),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.purple, width: 3),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: OrientationBuilder(
+              builder: (context, orientation) => Center(
+                child: FittedBox(
+                  child: Text(
+                    'MediaQuery orientation: $deviceOrientation\n\n' +
+                        'OrientationBuilder: $orientation',
+                    style: TextStyle(color: Colors.purple, fontSize: 30),
+                  ),
                 ),
               ),
             ),

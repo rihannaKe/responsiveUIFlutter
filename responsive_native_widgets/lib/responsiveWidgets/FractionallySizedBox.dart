@@ -44,12 +44,15 @@ class FractionallySizedBoxPage extends StatelessWidget {
                 child: FractionallySizedBox(
                   widthFactor: 0.5,
                   heightFactor: 0.25,
-                  child: RaisedButton(
-                    child: Text('Click'),
-                    color: Colors.purple,
-                    textColor: Colors.white,
-                    onPressed: () {},
-                  ),
+                  child: ElevatedButton(
+                      child: Text('Click'),
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.purple,
+                        textStyle: TextStyle(
+                          color: Colors.white,
+                        ),
+                      )),
                 ),
               ),
             ],

@@ -14,65 +14,20 @@ class MyFittedBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("FittedBox ")),
-      body: _buildSomething(),
+      body: _buildSomethingFitted(),
     );
   }
 
-  Widget _buildSomething() {
-    return ListView(
-      children: [
-        FittedBox(
-          fit: BoxFit.contain,
-          child: Row(
-            children: [
-              Container(
-                child: Image.asset("assets/img/riAvatar250x250.png"),
-              ),
-              Center(
-                child: Container(
-                  height: 40,
-                  child: Text('Hello, nice to Meet You!!'),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class FittedBoxPageTwo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MyFittedBoxTwo();
-  }
-}
-
-class MyFittedBoxTwo extends StatelessWidget {
-  MyFittedBoxTwo({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("FittedBox Example")),
-      body: _buildSomething(),
-    );
-  }
-
-  Widget _buildSomething() {
+  Widget _buildSomethingFitted() {
     return FittedBox(
-      fit: BoxFit.fitWidth,
-      child: Column(
+      fit: BoxFit.cover,
+      alignment: Alignment.bottomCenter,
+      child: Row(
         children: [
-          Container(
-            child: Image.network(
-                "https://www.officeair.it/images/gallery/2MEDIA%20LIBRARY%20IN%20UTIQUE/1.JPG"),
-          ),
-          Center(
-            child: Container(
-              child: Text('I am 50 px height'),
-            ),
+          Image.asset("assets/img/poster.png"),
+          Text(
+            "I'm big but I fit",
+            style: TextStyle(fontSize: 150, color: Colors.black),
           ),
         ],
       ),
